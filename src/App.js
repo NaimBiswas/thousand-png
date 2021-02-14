@@ -7,6 +7,7 @@ import MyRouter from './Components/Nav/MyRouter';
 import Nav from './Components/Nav/Nav';
 import { BrowserRouter } from 'react-router-dom';
 import { Spinner } from 'react-bootstrap';
+import OurNav from './Components/Nav/Nav';
 
 
 function App() {
@@ -44,7 +45,7 @@ function App() {
                :
                <>
                   <BrowserRouter>
-                     <Nav ></Nav>
+                     <OurNav></OurNav>
                      <MyRouter setUser={setuser}></MyRouter>
                   </BrowserRouter>
                </>

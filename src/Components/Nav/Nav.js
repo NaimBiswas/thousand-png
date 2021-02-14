@@ -1,52 +1,46 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import { Button, Form, FormControl, Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 
-const Nav = () => {
+const OurNav = () => {
    return (
-      <div>
-         <nav className="navbar navbar-expand-lg navbar-light bg-light mb-5">
-            <NavLink className="navbar-brand" to="/">
-               Naim Biswas
-           </NavLink>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-               <span className="navbar-toggler-icon" />
-            </button>
-            <div className="collapse navbar-collapse" id="navbarText">
-               <ul className="navbar-nav mr-auto">
-                  <li className="nav-item">
-                     <NavLink className="nav-link" to="/">
-                        Home
+      <Fragment>
+         <Navbar bg="light" expand="lg">
+            <Navbar.Brand href="#home">Naim Biswas</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+               <Nav className="mr-auto">
+                  <NavLink className="nav-link" to="/">
+                     Home
                        </NavLink>
-                  </li>
-                  <li className="nav-item">
-                     <NavLink className="nav-link" to="/about">
-                        About
+                  <NavLink className="nav-link" to="/about">
+                     About
                        </NavLink>
-                  </li>
-                  <li className="nav-item">
-                     <NavLink className="nav-link" to="/portoflio">
-                        Portfolio
+                  <NavLink className="nav-link" to="/portoflio">
+                     Portfolio
                        </NavLink>
-                  </li>
-                  <li className="nav-item">
-                     <NavLink className="nav-link" to="/contact">
-                        Contact
+                  <NavLink className="nav-link" to="/contact">
+                     Contact
                        </NavLink>
-                  </li>
-               </ul>
-               <NavLink className="btn btn-outline-info my-2 my-sm-0" to="/login">
-                  Login
-                   </NavLink>
-               <NavLink
-                  className="btn btn-outline-info my-2 my-sm-0 ml-3"
-                  to="/register"
-               >
-                  Register
-                   </NavLink>
-            </div>
-         </nav>
-      </div>
+               </Nav>
+               <Nav>
+                  <NavLink className='nav-link ' to='/Login'>
+                     <Button className='btn mr-4 ml-4' variant='outline-info'>
+                        Log-In
+                  </Button>
+                  </NavLink>
+
+                  <NavLink className='nav-link ' to='/register'>
+                     <Button className='btn ' variant='outline-info'>
+                        Register
+                  </Button>
+                  </NavLink>
+               </Nav>
+            </Navbar.Collapse>
+         </Navbar>
+
+      </Fragment>
    )
 }
 
-export default Nav
+export default OurNav

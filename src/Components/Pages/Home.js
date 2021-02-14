@@ -53,7 +53,7 @@ const Home = () => {
 
                                  <a target='blank' href={image?.url}>
                                     <span className="pt-4 pb-4 "> {!ImageLoadImage && <Spinner animation='border' className='mt-5 ml-3' variant='success'></Spinner>}</span>
-                                    <img key={index} onLoad={() => setImageLoadImage(true)} className='img-thumbnail' src={image?.download_url} alt='Images' />
+                                    <img key={index} loading='lazy' onLoad={() => setImageLoadImage(true)} className='img-thumbnail' src={image?.download_url} alt='Images' />
                                  </a>
                                  : ''
                               }
