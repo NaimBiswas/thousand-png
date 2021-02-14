@@ -41,10 +41,6 @@ const Home = () => {
    return (
       <div className="">
          <div className="container">
-
-
-
-
             {
                !ImageApi ? <div className="" style={{ minHeight: '60vh', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'flex' }}> <Spinner animation='border' variant='success'></Spinner></div>
                   :
@@ -67,9 +63,9 @@ const Home = () => {
                      }
                   </div>
             }
-            <div className="d-flex" style={{ justifyContent: 'space-between' }}>
+            <div className="d-flex mt-4 mb-5" style={{ justifyContent: 'space-between' }}>
                <span>Previous</span>
-               <Link to='/'><button onClick={ChangePage}>Next</button></Link>
+               <Link to='/'><button className='btn btn-info mb-5 ' onClick={ChangePage}>Next</button></Link>
             </div>
          </div>
       </div >
