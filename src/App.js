@@ -1,17 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import RingLoader from "react-spinners/RingLoader";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import MyRouter from './Components/Nav/MyRouter';
 import Nav from './Components/Nav/Nav';
 import { BrowserRouter } from 'react-router-dom';
+import { Spinner } from 'react-bootstrap';
 
 
 function App() {
+   const [users, setuser] = useState()
    const [loding, setLoding] = useState(false)
+
    useEffect(() => {
       setLoding(true)
+
       setTimeout(() => {
          setLoding(false)
       }, 2000)
@@ -21,8 +25,13 @@ function App() {
 
 
 
+
    return (
       <div className="app" style={{ textAlign: 'center', }}>
+         <h2>This is our user{users}</h2>
+
+
+
          {
             loding ?
 
@@ -36,7 +45,7 @@ function App() {
                <>
                   <BrowserRouter>
                      <Nav ></Nav>
-                     <MyRouter></MyRouter>
+                     <MyRouter setUser={setuser}></MyRouter>
                   </BrowserRouter>
                </>
          }

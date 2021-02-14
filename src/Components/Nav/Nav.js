@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 const Nav = () => {
    return (
       <div>
-         <nav className="navbar navbar-expand-lg navbar-light bg-light">
+         <nav className="navbar navbar-expand-lg navbar-light bg-light mb-5">
             <NavLink className="navbar-brand" to="/">
                Naim Biswas
            </NavLink>

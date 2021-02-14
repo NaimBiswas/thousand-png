@@ -13,7 +13,7 @@ const About = lazy(() => import('../Pages/About'))
 const Login = lazy(() => import('../Pages/Login'))
 const Regsiter = lazy(() => import('../Pages/Register'))
 
-const MyRouter = () => {
+const MyRouter = ({ setUser }) => {
    return (
       <div>
 
@@ -27,7 +27,7 @@ const MyRouter = () => {
             </Suspense>
          </Route>
 
-         <Route path='/about' component={About} >
+         <Route path='/about' >
             <Suspense fallback={<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', alignItems: 'center', justifyContent: 'center' }}>
 
                <RingLoader color={"#D0021B"} size={100} />
@@ -37,7 +37,7 @@ const MyRouter = () => {
             </Suspense>
          </Route>
 
-         <Route path='/portoflio' component={Portfolio} >
+         <Route path='/portoflio'  >
             <Suspense fallback={<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', alignItems: 'center', justifyContent: 'center' }}>
 
                <RingLoader color={"#D0021B"} size={100} />
@@ -47,7 +47,7 @@ const MyRouter = () => {
             </Suspense>
          </Route>
 
-         <Route path='/contact' component={Contact} >
+         <Route path='/contact'>
             <Suspense fallback={<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', alignItems: 'center', justifyContent: 'center' }}>
 
                <RingLoader color={"#D0021B"} size={100} />
@@ -59,19 +59,19 @@ const MyRouter = () => {
 
 
          {/* Login  */}
-         <Route path='/contact' component={Contact} >
+         <Route path='/login' component={Contact} >
             <Suspense fallback={<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', alignItems: 'center', justifyContent: 'center' }}>
 
                <RingLoader color={"#D0021B"} size={100} />
                <h3 className='text-info h2 italic'>Please Wait...</h3>
             </div>}>
-               <Login></Login>
+               <Login setUser={setUser}></Login>
             </Suspense>
          </Route>
 
 
          {/* Register  */}
-         <Route path='/contact' component={Contact} >
+         <Route path='/register'  >
             <Suspense fallback={<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', alignItems: 'center', justifyContent: 'center' }}>
 
                <RingLoader color={"#D0021B"} size={100} />

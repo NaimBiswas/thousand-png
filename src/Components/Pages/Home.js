@@ -1,46 +1,78 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Spinner } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
+
+   const [Count, setCount] = useState(2)
+   console.log(Count);
+   const [ImageApi, setImageApi] = useState()
+   const [ImageLoadImage, setImageLoadImage] = useState()
+
+
+   useEffect(() => {
+
+      setTimeout(() => {
+         fetch(`https://picsum.photos/v2/list?page=${Count}&limit=5`)
+            .then(res => res.json())
+            .then(results => {
+               setImageApi(results)
+
+            })
+      }, 1200)
+   }, [])
+   const ChangePage = () => {
+      setCount(Count + 1)
+
+      setImageApi(null)
+      setImageLoadImage(false)
+
+      fetch(`https://picsum.photos/v2/list?page=${Count}&limit=5`)
+         .then(res => res.json())
+         .then(results => {
+            setImageApi(results)
+
+         })
+
+
+
+
+   }
    return (
       <div className="">
          <div className="container">
-            <div className="row">
-
-               <div className="col-lg-4">
-                  <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />
-                  <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />
-                  <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />   <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />
-               </div>
-               <div className="col-lg-4">
-                  <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />
-                  <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />
-                  <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />   <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />
-               </div>
-               <div className="col-lg-4">
-                  <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />
-                  <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />
-                  <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />   <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />
-               </div>
-               <div className="col-lg-4">
-                  <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />
-                  <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />
-                  <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />   <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />
-               </div>
-               <div className="col-lg-4">
-                  <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />
-                  <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />
-                  <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />   <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />
-               </div>
-               <div className="col-lg-4">
-                  <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />
-                  <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />
-                  <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />   <img className='img-fluid w-100 mt-4' src="https://wallpaperaccess.com/full/733636.jpg" alt="" />
-               </div>
 
 
+
+
+            {
+               !ImageApi ? <div className="" style={{ minHeight: '60vh', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'flex' }}> <Spinner animation='border' variant='success'></Spinner></div>
+                  :
+                  <div className="row">
+                     {
+                        ImageApi.map((image, index) => (
+                           <div className="col-lg-4" >
+
+                              { image?.download_url.length > 0 ?
+
+                                 <a target='blank' href={image?.url}>
+                                    <span className="pt-4 pb-4 "> {!ImageLoadImage && <Spinner animation='border' className='mt-5 ml-3' variant='success'></Spinner>}</span>
+                                    <img key={index} onLoad={() => setImageLoadImage(true)} className='img-thumbnail' src={image?.download_url} alt='Images' />
+                                 </a>
+                                 : ''
+                              }
+                           </div>
+                        )
+                        )
+                     }
+                  </div>
+            }
+            <div className="d-flex" style={{ justifyContent: 'space-between' }}>
+               <span>Previous</span>
+               <Link to='/'><button onClick={ChangePage}>Next</button></Link>
             </div>
          </div>
-      </div>
+      </div >
    )
 }
 
