@@ -33,11 +33,19 @@ const Home = () => {
             setImageApi(results)
 
          })
+   }
+   const PrePage = () => {
+      setCount(Count - 1)
 
-
-
+      setImageApi(null)
+      setImageLoadImage(false)
+      fetch(`https://picsum.photos/v2/list?page=${Count}&limit=40`)
+         .then((res) => res.json())
+         .then(results => setImageApi(results))
+         .catch((error) => console.log(error))
 
    }
+
    return (
       <div className="">
          <div className="container">
@@ -65,7 +73,7 @@ const Home = () => {
             }
             <div className="d-flex mt-4 mb-5" style={{ justifyContent: 'space-between' }}>
                {
-                  Count === 2 ? '' : <Link to='/'> <Button variant='warning'>Previous</Button></Link>
+                  Count === 2 ? '' : <Link to='/'> <Button onClick={PrePage} variant='warning'>Previous</Button></Link>
                }
                <Link to='/'><button className='btn btn-info mb-5 ' onClick={ChangePage}>Next</button></Link>
             </div>
