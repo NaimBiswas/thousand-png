@@ -75,7 +75,7 @@ const Home = () => {
                {
                   Count === 2 ? '' : <Link to='/'> <Button onClick={PrePage} variant='warning'>Previous</Button></Link>
                }
-               <Link to='/'><button className='btn btn-info mb-5 ' onClick={ChangePage}>Next</button></Link>
+               {!ImageApi ? '' : <Link to='/'><button className='btn btn-info mb-5 ' onClick={ChangePage}>Next</button></Link>}
             </div>
          </div>
       </div >

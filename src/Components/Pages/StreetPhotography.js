@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Spinner } from 'react-bootstrap'
+import { Button, Spinner } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const StreetPhotography = () => {
 
 
    const [StreetPhotography, setStreetPhotography] = useState()
-   const [Count, setCount] = useState(1)
+   const [Count, setCount] = useState(2)
    const ACCESS_KEy = "ExySIyO6CZyXtnMrbiLLl0s2R8Uo8YvE2Q8u14ZRi9U"
    const query = "street-photography"
    const NextPages = () => {
@@ -17,6 +18,18 @@ const StreetPhotography = () => {
             (results) => setStreetPhotography(results.results)
          )
    }
+
+   const PrePage = () => {
+      setCount(Count - 1)
+      setStreetPhotography('')
+      fetch(`https://api.unsplash.com/search/photos/?page=${Count}&per_page=24&query=${query}&client_id=${ACCESS_KEy}`)
+         .then((res) => res.json())
+         .then(
+            (results) => setStreetPhotography(results.results)
+         )
+   }
+
+
    useEffect(() => {
 
       fetch(`https://api.unsplash.com/search/photos/?page=1&per_page=40&query=${query}&client_id=${ACCESS_KEy}`)
@@ -44,8 +57,11 @@ const StreetPhotography = () => {
             </div>
             <div className="container">
                <div className="row justify-content-between" style={{ marginTop: '50px', marginBottom: '70px' }}>
-                  <button className='btn btn-danger'>Previous</button>
-                  <button className='btn btn-info' onClick={NextPages}>Next</button>
+
+                  {
+                     Count === 2 ? '' : <Link to='/street-photograhy'> <Button onClick={PrePage} variant='warning'>Previous</Button></Link>
+                  }
+                  <Link to='/street-photograhy'> <button className='btn btn-info' onClick={NextPages}>Next</button></Link>
                </div>
             </div>
          </div>
