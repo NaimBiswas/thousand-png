@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Spinner } from 'react-bootstrap'
+import { Button, Spinner } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const FoodAndDrink = () => {
    const [FoodAndDrink, setFoodAndDrink] = useState()
@@ -8,6 +9,15 @@ const FoodAndDrink = () => {
    const query = "Food-Drink"
    const NextPages = () => {
       setCount(Count + 1)
+      setFoodAndDrink('')
+      fetch(`https://api.unsplash.com/search/photos/?page=${Count}&per_page=44&query=${query}&client_id=${ACCESS_KEy}`)
+         .then((res) => res.json())
+         .then(
+            (results) => setFoodAndDrink(results.results)
+         )
+   }
+   const PrePage = () => {
+      setCount(Count - 1)
       setFoodAndDrink('')
       fetch(`https://api.unsplash.com/search/photos/?page=${Count}&per_page=44&query=${query}&client_id=${ACCESS_KEy}`)
          .then((res) => res.json())
@@ -38,8 +48,11 @@ const FoodAndDrink = () => {
             </div>
             <div className="container">
                <div className="row justify-content-between" style={{ marginTop: '50px', marginBottom: '70px' }}>
-                  <button className='btn btn-danger'>Previous</button>
-                  <button className='btn btn-info' onClick={NextPages}>Next</button>
+
+                  {
+                     Count === 2 ? '' : <Link to='/food-drink'> <Button onClick={PrePage} variant='warning'>Previous</Button></Link>
+                  }
+                  <Link to='/food-drink'> <button className='btn btn-info' onClick={NextPages}>Next</button></Link>
                </div>
             </div>
          </div>

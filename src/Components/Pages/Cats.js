@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Button, Spinner } from 'react-bootstrap'
+import { Button, Spinner } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const Portoflio = () => {
@@ -50,9 +50,9 @@ const Portoflio = () => {
             <div className="row justify-content-between" style={{ marginTop: '50px', marginBottom: '70px' }}>
 
                {
-                  Count === 2 ? '' : <Link to='/cars'> <Button onClick={PrePage} variant='warning'>Previous</Button></Link>
+                  Count === 2 ? '' : <Link to='/cats'> <Button onClick={PrePage} variant='warning'>Previous</Button></Link>
                }
-               <Link to='/cars'> <button className='btn btn-info' onClick={NextPages}>Next</button></Link>
+               <Link to='/cats'> <button className='btn btn-info' onClick={NextPages}>Next</button></Link>
             </div>
          </div>
       </div>
