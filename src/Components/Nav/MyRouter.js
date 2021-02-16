@@ -129,13 +129,13 @@ const MyRouter = ({ setUser }) => {
          </Route>
 
          {/* Search */}
-         <Route path='/serach'>
+         <Route path='/search'>
             <Suspense fallback={<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', alignItems: 'center', justifyContent: 'center' }}>
 
                <RingLoader color={"#D0021B"} size={100} />
                <h3 className='text-info h2 italic'>Please Wait...</h3>
             </div>}>
-               <Bike></Bike>
+               <Serach></Serach>
             </Suspense>
          </Route>
 
