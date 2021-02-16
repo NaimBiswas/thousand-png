@@ -55,9 +55,9 @@ const History = () => {
                <div className="row justify-content-between" style={{ marginTop: '50px', marginBottom: '70px' }}>
 
                   {
-                     Count === 2 ? '' : <Link to='/cats'> <Button onClick={PrePage} variant='warning'>Previous</Button></Link>
+                     Count === 2 ? '' : <Link to='/history'> <Button onClick={PrePage} variant='warning'>Previous</Button></Link>
                   }
-                  <Link to='/cats'> <button className='btn btn-info' onClick={NextPages}>Next</button></Link>
+                  <Link to='/history'> <button className='btn btn-info' onClick={NextPages}>Next</button></Link>
                </div>
             </div>
          </div>
