@@ -8,9 +8,10 @@ import { Spinner } from 'react-bootstrap'
 const About = () => {
    const [Images, setImage] = useState()
    const [Cats, setCate] = useState()
-   const [Count, setCount] = useState(1)
+   const [Count, setCount] = useState(2)
    const ACCESS_KEy = "ExySIyO6CZyXtnMrbiLLl0s2R8Uo8YvE2Q8u14ZRi9U"
    const query = "cat"
+
    const NextPages = () => {
       setCount(Count + 1)
       setImage('')
@@ -22,14 +23,14 @@ const About = () => {
          )
    }
    useEffect(() => {
-      fetch(`https://api.unsplash.com/photos/?per_page=1&per_page=40client_id=${ACCESS_KEy}`).then((res) => res.json()).then((results) => setImage(results))
+      fetch(`https://api.unsplash.com/photos/?per_page=1&per_page=40&client_id=${ACCESS_KEy}`).then((res) => res.json()).then((results) => setImage(results))
 
 
-      fetch(`https://api.unsplash.com/search/photos/?page=12&query=${query}&client_id=${ACCESS_KEy}`)
-         .then((res) => res.json())
-         .then(
-            (results) => setCate(results.results)
-         )
+      // fetch(`https://api.unsplash.com/search/photos/?page=12&query=${query}&client_id=${ACCESS_KEy}`)
+      //    .then((res) => res.json())
+      //    .then(
+      //       (results) => setCate(results.results)
+      //    )
 
 
    }, [])
