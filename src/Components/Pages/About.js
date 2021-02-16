@@ -72,9 +72,6 @@ const About = () => {
                   Count === 2 ? '' : <Link to='/unsplash'> <Button onClick={PrePage} variant='warning'>Previous</Button></Link>
                }
                <Link to='/unsplash'> <button className='btn btn-info' onClick={NextPages}>Next</button></Link>
-
-
-
             </div>
          </div>
       </div >
