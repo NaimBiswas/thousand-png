@@ -22,7 +22,7 @@ const WallPaper = () => {
             (results) => setWallPaper(results.results)
          )
    }, [])
-   console.log(WallPaper);
+
    return (
       <>
          <div className='container'>
