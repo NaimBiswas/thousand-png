@@ -7,7 +7,7 @@ const OurNav = () => {
 
    return (
       <Fragment>
-         <Navbar bg="light" expand="lg">
+         <Navbar className='border' style={{ position: 'fixed', zIndex: '09999', width: '100%' }} bg="light" expand="lg">
             <Navbar.Brand className='nav-link'><NavLink to='/' className='nav-link'>Naim Biswas</NavLink></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -71,8 +71,10 @@ const OurNav = () => {
                   <NavLink className='nav-link' to='search'><Button variant='outline-danger' className='h4'>Search</Button></NavLink>
                </Nav>
             </Navbar.Collapse>
+
          </Navbar>
 
+         <div style={{ paddingTop: '140px' }} className="Margin"></div>
       </Fragment>
    )
 }
