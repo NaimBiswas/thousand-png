@@ -39,6 +39,14 @@ const OurNav = () => {
                        </NavLink>
                      </NavDropdown.Item>
 
+                     <NavDropdown.Item>
+                        <NavLink className="nav-link" to="/history">
+                           History
+                       </NavLink>
+                     </NavDropdown.Item>
+
+
+
                   </NavDropdown>
                </Nav>
                <Nav>
