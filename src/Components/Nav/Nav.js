@@ -56,6 +56,12 @@ const OurNav = () => {
                        </NavLink>
                      </NavDropdown.Item>
 
+                     <NavDropdown.Item>
+                        <NavLink className="nav-link" to="/bikes">
+                           Bikes
+                       </NavLink>
+                     </NavDropdown.Item>
+
 
 
                   </NavDropdown>

@@ -17,6 +17,7 @@ const Contact = lazy(() => import('../Pages/Natures'))
 const About = lazy(() => import('../Pages/About'))
 const Login = lazy(() => import('../Pages/Login'))
 const Regsiter = lazy(() => import('../Pages/Register'))
+const Bike = lazy(() => import('../Pages/Bike'))
 
 const MyRouter = ({ setUser }) => {
    return (
@@ -112,6 +113,17 @@ const MyRouter = ({ setUser }) => {
                <h3 className='text-info h2 italic'>Please Wait...</h3>
             </div>}>
                <FoodAndDrink></FoodAndDrink>
+            </Suspense>
+         </Route>
+
+         {/* Food and drink */}
+         <Route path='/bikes'>
+            <Suspense fallback={<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', alignItems: 'center', justifyContent: 'center' }}>
+
+               <RingLoader color={"#D0021B"} size={100} />
+               <h3 className='text-info h2 italic'>Please Wait...</h3>
+            </div>}>
+               <Bike></Bike>
             </Suspense>
          </Route>
 
