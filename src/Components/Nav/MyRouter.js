@@ -4,6 +4,7 @@ import { lazy } from 'react'
 import { Route } from 'react-router-dom'
 import { RingLoader } from 'react-spinners'
 import Car from '../Pages/Car'
+import FoodAndDrink from '../Pages/FoodAndDrink'
 import History from '../Pages/History'
 import StreetPhotography from '../Pages/StreetPhotography'
 import WallPaper from '../Pages/WallPaper'
@@ -100,6 +101,17 @@ const MyRouter = ({ setUser }) => {
                <h3 className='text-info h2 italic'>Please Wait...</h3>
             </div>}>
                <WallPaper></WallPaper>
+            </Suspense>
+         </Route>
+
+         {/* Food and drink */}
+         <Route path='/food-drink'>
+            <Suspense fallback={<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', alignItems: 'center', justifyContent: 'center' }}>
+
+               <RingLoader color={"#D0021B"} size={100} />
+               <h3 className='text-info h2 italic'>Please Wait...</h3>
+            </div>}>
+               <FoodAndDrink></FoodAndDrink>
             </Suspense>
          </Route>
 

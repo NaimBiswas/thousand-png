@@ -50,6 +50,12 @@ const OurNav = () => {
                        </NavLink>
                      </NavDropdown.Item>
 
+                     <NavDropdown.Item>
+                        <NavLink className="nav-link" to="/food-drink">
+                           Food & Drink
+                       </NavLink>
+                     </NavDropdown.Item>
+
 
 
                   </NavDropdown>
