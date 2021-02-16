@@ -17,7 +17,7 @@ const Bike = () => {
    }
    useEffect(() => {
 
-      fetch(`https://api.unsplash.com/search/photos/?page=12&query=${query}&client_id=${ACCESS_KEy}`)
+      fetch(`https://api.unsplash.com/search/photos/?page=1&per_page=40&query=${query}&client_id=${ACCESS_KEy}`)
          .then((res) => res.json())
          .then(
             (results) => setBike(results.results)
