@@ -1,3 +1,4 @@
+import { Dropdown } from 'react-bootstrap'
 import React, { Fragment } from 'react'
 import { Button, Form, FormControl, Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
@@ -13,15 +14,32 @@ const OurNav = () => {
                   <NavLink className="nav-link" to="/">
                      Home
                        </NavLink>
-                  <NavLink className="nav-link" to="/about">
-                     About
+                  <NavLink className="nav-link" to="/unsplash">
+                     Unsplash
                        </NavLink>
-                  <NavLink className="nav-link" to="/portoflio">
-                     Portfolio
+                  <NavDropdown title="Categories" id="basic-nav-dropdown">
+                     <NavDropdown.Item>
+                        <NavLink className="nav-link" to="/cats">
+                           Cats
                        </NavLink>
-                  <NavLink className="nav-link" to="/contact">
-                     Contact
+                     </NavDropdown.Item>
+                     <NavDropdown.Item>
+                        <NavLink className="nav-link" to="/natures">
+                           Natures
                        </NavLink>
+                     </NavDropdown.Item>
+                     <NavDropdown.Item>
+                        <NavLink className="nav-link" to="/cars">
+                           Cars
+                       </NavLink>
+                     </NavDropdown.Item>
+                     <NavDropdown.Item>
+                        <NavLink className="nav-link" to="/street-photograhy">
+                           Street Photography
+                       </NavLink>
+                     </NavDropdown.Item>
+
+                  </NavDropdown>
                </Nav>
                <Nav>
                   <NavLink className='nav-link ' to='/Login'>

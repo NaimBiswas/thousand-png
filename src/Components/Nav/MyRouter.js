@@ -3,12 +3,14 @@ import { Suspense } from 'react'
 import { lazy } from 'react'
 import { Route } from 'react-router-dom'
 import { RingLoader } from 'react-spinners'
+import Car from '../Pages/Car'
+import StreetPhotography from '../Pages/StreetPhotography'
 
 
 
 const Home = lazy(() => import('../Pages/Home'))
-const Portfolio = lazy(() => import('../Pages/Portoflio'))
-const Contact = lazy(() => import('../Pages/Contact'))
+const Portfolio = lazy(() => import('../Pages/Cats'))
+const Contact = lazy(() => import('../Pages/Natures'))
 const About = lazy(() => import('../Pages/About'))
 const Login = lazy(() => import('../Pages/Login'))
 const Regsiter = lazy(() => import('../Pages/Register'))
@@ -27,7 +29,7 @@ const MyRouter = ({ setUser }) => {
             </Suspense>
          </Route>
 
-         <Route path='/about' >
+         <Route path='/unsplash' >
             <Suspense fallback={<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', alignItems: 'center', justifyContent: 'center' }}>
 
                <RingLoader color={"#D0021B"} size={100} />
@@ -37,7 +39,7 @@ const MyRouter = ({ setUser }) => {
             </Suspense>
          </Route>
 
-         <Route path='/portoflio'  >
+         <Route path='/cats'  >
             <Suspense fallback={<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', alignItems: 'center', justifyContent: 'center' }}>
 
                <RingLoader color={"#D0021B"} size={100} />
@@ -47,13 +49,33 @@ const MyRouter = ({ setUser }) => {
             </Suspense>
          </Route>
 
-         <Route path='/contact'>
+         <Route path='/natures'>
             <Suspense fallback={<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', alignItems: 'center', justifyContent: 'center' }}>
 
                <RingLoader color={"#D0021B"} size={100} />
                <h3 className='text-info h2 italic'>Please Wait...</h3>
             </div>}>
                <Contact></Contact>
+            </Suspense>
+         </Route>
+         {/* Cars  */}
+         <Route path='/cars'>
+            <Suspense fallback={<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', alignItems: 'center', justifyContent: 'center' }}>
+
+               <RingLoader color={"#D0021B"} size={100} />
+               <h3 className='text-info h2 italic'>Please Wait...</h3>
+            </div>}>
+               <Car></Car>
+            </Suspense>
+         </Route>
+         {/* street-photograhy  */}
+         <Route path='/street-photograhy'>
+            <Suspense fallback={<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', alignItems: 'center', justifyContent: 'center' }}>
+
+               <RingLoader color={"#D0021B"} size={100} />
+               <h3 className='text-info h2 italic'>Please Wait...</h3>
+            </div>}>
+               <StreetPhotography></StreetPhotography>
             </Suspense>
          </Route>
 
