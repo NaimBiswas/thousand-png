@@ -13,7 +13,7 @@ const Home = () => {
    useEffect(() => {
 
       setTimeout(() => {
-         fetch(`https://picsum.photos/v2/list?page=${Count}&limit=40`)
+         fetch(`https://picsum.photos/v2/list?page=1&limit=40`)
             .then(res => res.json())
             .then(results => {
                setImageApi(results)
