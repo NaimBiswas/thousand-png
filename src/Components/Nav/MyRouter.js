@@ -6,6 +6,7 @@ import { RingLoader } from 'react-spinners'
 import Car from '../Pages/Car'
 import History from '../Pages/History'
 import StreetPhotography from '../Pages/StreetPhotography'
+import WallPaper from '../Pages/WallPaper'
 
 
 
@@ -80,7 +81,7 @@ const MyRouter = ({ setUser }) => {
             </Suspense>
          </Route>
 
-         {/* street-photograhy  */}
+         {/*History  */}
          <Route path='/history'>
             <Suspense fallback={<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', alignItems: 'center', justifyContent: 'center' }}>
 
@@ -90,6 +91,18 @@ const MyRouter = ({ setUser }) => {
                <History></History>
             </Suspense>
          </Route>
+
+         {/* Wallpaper */}
+         <Route path='/wallpaper'>
+            <Suspense fallback={<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', alignItems: 'center', justifyContent: 'center' }}>
+
+               <RingLoader color={"#D0021B"} size={100} />
+               <h3 className='text-info h2 italic'>Please Wait...</h3>
+            </div>}>
+               <WallPaper></WallPaper>
+            </Suspense>
+         </Route>
+
 
 
 

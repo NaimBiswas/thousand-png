@@ -16,7 +16,12 @@ const OurNav = () => {
                        </NavLink>
                   <NavLink className="nav-link" to="/unsplash">
                      Unsplash
-                       </NavLink>
+                  </NavLink>
+                  <NavLink className="nav-link" to="/wallpaper">
+                     Wallpaper
+                  </NavLink>
+
+
                   <NavDropdown title="Categories" id="basic-nav-dropdown">
                      <NavDropdown.Item>
                         <NavLink className="nav-link" to="/cats">
