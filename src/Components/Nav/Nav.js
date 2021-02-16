@@ -4,6 +4,9 @@ import { Button, Form, FormControl, Navbar, Nav, NavDropdown } from 'react-boots
 import { NavLink } from 'react-router-dom'
 
 const OurNav = () => {
+   const Search = () => {
+
+   }
    return (
       <Fragment>
          <Navbar bg="light" expand="lg">
@@ -66,19 +69,10 @@ const OurNav = () => {
 
                   </NavDropdown>
                </Nav>
-               <Nav>
-                  <NavLink className='nav-link ' to='/Login'>
-                     <Button className='btn mr-4 ml-4' variant='outline-info'>
-                        Log-In
-                  </Button>
-                  </NavLink>
-
-                  <NavLink className='nav-link ' to='/register'>
-                     <Button className='btn ' variant='outline-info'>
-                        Register
-                  </Button>
-                  </NavLink>
-               </Nav>
+               <Form inline>
+                  <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                  <Button onClick={Search} type='submit' variant="outline-success">Search</Button>
+               </Form>
             </Navbar.Collapse>
          </Navbar>
 
