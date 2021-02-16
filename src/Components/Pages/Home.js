@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Spinner } from 'react-bootstrap'
+import { Spinner, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
@@ -64,7 +64,9 @@ const Home = () => {
                   </div>
             }
             <div className="d-flex mt-4 mb-5" style={{ justifyContent: 'space-between' }}>
-               <span>Previous</span>
+               {
+                  Count === 2 ? '' : <Link to='/'> <Button variant='warning'>Previous</Button></Link>
+               }
                <Link to='/'><button className='btn btn-info mb-5 ' onClick={ChangePage}>Next</button></Link>
             </div>
          </div>
