@@ -8,7 +8,7 @@ const OurNav = () => {
    return (
       <Fragment>
          <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="#home">Naim Biswas</Navbar.Brand>
+            <Navbar.Brand className='nav-link'><NavLink to='/' className='nav-link'>Naim Biswas</NavLink></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                <Nav className="mr-auto">
