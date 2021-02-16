@@ -1,12 +1,10 @@
 import { Dropdown } from 'react-bootstrap'
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Button, Form, FormControl, Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 
 const OurNav = () => {
-   const Search = () => {
 
-   }
    return (
       <Fragment>
          <Navbar bg="light" expand="lg">
@@ -69,10 +67,9 @@ const OurNav = () => {
 
                   </NavDropdown>
                </Nav>
-               <Form inline>
-                  <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                  <Button onClick={Search} type='submit' variant="outline-success">Search</Button>
-               </Form>
+               <Nav>
+                  <NavLink className='nav-link' to='search'><Button variant='outline-danger' className='h4'>Search</Button></NavLink>
+               </Nav>
             </Navbar.Collapse>
          </Navbar>
 
